@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FeatureSidebar {
+        "handleActive": (event: CustomEvent) => Promise<void>;
+        "title": string;
     }
     interface SidebarToggle {
     }
@@ -31,8 +33,12 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FeatureSidebar {
+        "onScActiveState"?: (event: CustomEvent<any>) => void;
+        "title"?: string;
     }
     interface SidebarToggle {
+        "onStSetActiveSidebar"?: (event: CustomEvent<boolean>) => void;
+        "onStSetToggleElement"?: (event: CustomEvent<HTMLElement>) => void;
     }
     interface IntrinsicElements {
         "feature-sidebar": FeatureSidebar;

@@ -1,4 +1,4 @@
-import { Component, Host, State, h } from '@stencil/core';
+import { Component, Element, Host, Listen, State, Event, EventEmitter, h } from '@stencil/core';
 
 @Component({
   tag: 'sidebar-toggle',
@@ -6,10 +6,24 @@ import { Component, Host, State, h } from '@stencil/core';
   shadow: true,
 })
 export class SidebarToggle {
+  @Element() toggleElement: HTMLElement;
+  @Event({ bubbles: true, composed: false })
+  stSetActiveSidebar: EventEmitter<boolean>;
+  @Event({ bubbles: true, composed: false }) stSetToggleElement: EventEmitter<HTMLElement>;
   @State() active: boolean = false;
 
   handleClick() {
     this.active = !this.active;
+    this.stSetActiveSidebar.emit(this.active);
+  }
+
+  componentDidLoad() {
+    this.stSetToggleElement.emit(this.toggleElement);
+  }
+
+  @Listen('scActiveState', { target: 'body' })
+  handleStateChange(event: CustomEvent) {
+    this.active = event.detail;
   }
 
   render() {
