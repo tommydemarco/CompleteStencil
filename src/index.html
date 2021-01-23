@@ -7,8 +7,32 @@
 
     <script type="module" src="/build/complete-srtencil.esm.js"></script>
     <script nomodule src="/build/complete-srtencil.js"></script>
+
+    <style lang="text/scss">
+      sidebar-toggle {
+        position: fixed;
+        right:60px;
+        top:60px;
+        background-color: transparent;
+      }
+      sidebar-toggle:hover {
+        transform: scale(1.1);
+      }
+      sidebar-toggl:hover > div::after,
+      sidebar-toggl:hover > div::before {
+        box-shadow: 0px 5px 37px 6px rgba(0, 0, 0, 0.58);
+      }
+    </style>
   </head>
+
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <feature-sidebar>
+      <div class="sidebar-content">
+        <div class="sidebar-info">
+          <h1>The content of the info</h1>
+        </div>
+      </div>
+    </feature-sidebar>
+    <sidebar-toggle> </sidebar-toggle>
   </body>
 </html>
