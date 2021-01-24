@@ -20,7 +20,7 @@ export class FeatureSidebar {
   @Listen('stSetActiveSidebar', { target: 'body' })
   @Method()
   @Listen('click', { target: 'body' })
-  handleActive(event: CustomEvent): void {
+  async handleActive(event: CustomEvent): Promise<void> {
     if (event.detail === true || event.detail === false) {
       this.active = event.detail;
       return;
