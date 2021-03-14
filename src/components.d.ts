@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface FeatureContent {
+    }
     interface FeatureMain {
     }
     interface FeatureSidebar {
@@ -16,6 +18,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFeatureContentElement extends Components.FeatureContent, HTMLStencilElement {
+    }
+    var HTMLFeatureContentElement: {
+        prototype: HTMLFeatureContentElement;
+        new (): HTMLFeatureContentElement;
+    };
     interface HTMLFeatureMainElement extends Components.FeatureMain, HTMLStencilElement {
     }
     var HTMLFeatureMainElement: {
@@ -35,12 +43,15 @@ declare global {
         new (): HTMLSidebarToggleElement;
     };
     interface HTMLElementTagNameMap {
+        "feature-content": HTMLFeatureContentElement;
         "feature-main": HTMLFeatureMainElement;
         "feature-sidebar": HTMLFeatureSidebarElement;
         "sidebar-toggle": HTMLSidebarToggleElement;
     }
 }
 declare namespace LocalJSX {
+    interface FeatureContent {
+    }
     interface FeatureMain {
     }
     interface FeatureSidebar {
@@ -52,6 +63,7 @@ declare namespace LocalJSX {
         "onStSetToggleElement"?: (event: CustomEvent<HTMLElement>) => void;
     }
     interface IntrinsicElements {
+        "feature-content": FeatureContent;
         "feature-main": FeatureMain;
         "feature-sidebar": FeatureSidebar;
         "sidebar-toggle": SidebarToggle;
@@ -61,6 +73,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "feature-content": LocalJSX.FeatureContent & JSXBase.HTMLAttributes<HTMLFeatureContentElement>;
             "feature-main": LocalJSX.FeatureMain & JSXBase.HTMLAttributes<HTMLFeatureMainElement>;
             "feature-sidebar": LocalJSX.FeatureSidebar & JSXBase.HTMLAttributes<HTMLFeatureSidebarElement>;
             "sidebar-toggle": LocalJSX.SidebarToggle & JSXBase.HTMLAttributes<HTMLSidebarToggleElement>;
