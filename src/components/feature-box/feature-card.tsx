@@ -1,8 +1,8 @@
 import { Component, Host, Prop, h } from "@stencil/core"
 
 @Component({
-    tag: "feature-box",
-    styleUrl: "feature-box.scss",
+    tag: "feature-card",
+    styleUrl: "feature-card.scss",
     shadow: false,
 })
 export class FeatureContent {

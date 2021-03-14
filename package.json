@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@stencil/core": "^2.0.1",
+    "@stencil/state-tunnel": "^1.0.1",
     "sass": "^1.32.5"
   },
   "license": "MIT",
