@@ -6,6 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface FeatureBox {
+        "img": string;
+    }
     interface FeatureContent {
     }
     interface FeatureMain {
@@ -18,6 +21,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFeatureBoxElement extends Components.FeatureBox, HTMLStencilElement {
+    }
+    var HTMLFeatureBoxElement: {
+        prototype: HTMLFeatureBoxElement;
+        new (): HTMLFeatureBoxElement;
+    };
     interface HTMLFeatureContentElement extends Components.FeatureContent, HTMLStencilElement {
     }
     var HTMLFeatureContentElement: {
@@ -43,6 +52,7 @@ declare global {
         new (): HTMLSidebarToggleElement;
     };
     interface HTMLElementTagNameMap {
+        "feature-box": HTMLFeatureBoxElement;
         "feature-content": HTMLFeatureContentElement;
         "feature-main": HTMLFeatureMainElement;
         "feature-sidebar": HTMLFeatureSidebarElement;
@@ -50,6 +60,9 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FeatureBox {
+        "img"?: string;
+    }
     interface FeatureContent {
     }
     interface FeatureMain {
@@ -63,6 +76,7 @@ declare namespace LocalJSX {
         "onStSetToggleElement"?: (event: CustomEvent<HTMLElement>) => void;
     }
     interface IntrinsicElements {
+        "feature-box": FeatureBox;
         "feature-content": FeatureContent;
         "feature-main": FeatureMain;
         "feature-sidebar": FeatureSidebar;
@@ -73,6 +87,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "feature-box": LocalJSX.FeatureBox & JSXBase.HTMLAttributes<HTMLFeatureBoxElement>;
             "feature-content": LocalJSX.FeatureContent & JSXBase.HTMLAttributes<HTMLFeatureContentElement>;
             "feature-main": LocalJSX.FeatureMain & JSXBase.HTMLAttributes<HTMLFeatureMainElement>;
             "feature-sidebar": LocalJSX.FeatureSidebar & JSXBase.HTMLAttributes<HTMLFeatureSidebarElement>;
