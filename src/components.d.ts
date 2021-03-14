@@ -6,14 +6,22 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface FeatureMain {
+    }
     interface FeatureSidebar {
         "handleActive": (event: CustomEvent) => Promise<void>;
-        "title": string;
+        "sidebarTitle": string;
     }
     interface SidebarToggle {
     }
 }
 declare global {
+    interface HTMLFeatureMainElement extends Components.FeatureMain, HTMLStencilElement {
+    }
+    var HTMLFeatureMainElement: {
+        prototype: HTMLFeatureMainElement;
+        new (): HTMLFeatureMainElement;
+    };
     interface HTMLFeatureSidebarElement extends Components.FeatureSidebar, HTMLStencilElement {
     }
     var HTMLFeatureSidebarElement: {
@@ -27,20 +35,24 @@ declare global {
         new (): HTMLSidebarToggleElement;
     };
     interface HTMLElementTagNameMap {
+        "feature-main": HTMLFeatureMainElement;
         "feature-sidebar": HTMLFeatureSidebarElement;
         "sidebar-toggle": HTMLSidebarToggleElement;
     }
 }
 declare namespace LocalJSX {
+    interface FeatureMain {
+    }
     interface FeatureSidebar {
         "onScActiveState"?: (event: CustomEvent<any>) => void;
-        "title"?: string;
+        "sidebarTitle"?: string;
     }
     interface SidebarToggle {
         "onStSetActiveSidebar"?: (event: CustomEvent<boolean>) => void;
         "onStSetToggleElement"?: (event: CustomEvent<HTMLElement>) => void;
     }
     interface IntrinsicElements {
+        "feature-main": FeatureMain;
         "feature-sidebar": FeatureSidebar;
         "sidebar-toggle": SidebarToggle;
     }
@@ -49,6 +61,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "feature-main": LocalJSX.FeatureMain & JSXBase.HTMLAttributes<HTMLFeatureMainElement>;
             "feature-sidebar": LocalJSX.FeatureSidebar & JSXBase.HTMLAttributes<HTMLFeatureSidebarElement>;
             "sidebar-toggle": LocalJSX.SidebarToggle & JSXBase.HTMLAttributes<HTMLSidebarToggleElement>;
         }

@@ -1,4 +1,4 @@
-import { Component, State, Prop, Host, h, Listen, Method, Element, Event, EventEmitter } from '@stencil/core';
+import { Component, State, Prop, Host, h, Listen, Method, Element, Event } from '@stencil/core';
 
 @Component({
   tag: 'feature-sidebar',
@@ -6,7 +6,7 @@ import { Component, State, Prop, Host, h, Listen, Method, Element, Event, EventE
   shadow: false,
 })
 export class FeatureSidebar {
-  @Prop() title: string = 'Menu';
+  @Prop() sidebarTitle: string = 'Menu';
   @State() active = false;
   @State() toggleElement: HTMLElement;
   @Element() component: HTMLElement;
@@ -46,7 +46,7 @@ export class FeatureSidebar {
         <div class={classes.join(' ')}>
           <h2 class={baseClass + '__title'}>
             <span class={baseClass + '__title-icon'}>&#9918;</span>
-            {this.title}
+            {this.sidebarTitle}
           </h2>
           <p class={baseClass + '__subtitle'}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nobis molestiae necessitatibus quibusdam corrupti explicabo itaque aut, quas.
