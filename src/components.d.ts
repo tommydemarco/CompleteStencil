@@ -8,16 +8,23 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FeatureCard {
         "img": string;
+        "sidebarActive": string;
     }
     interface FeatureContent {
+        "sidebarActive": boolean;
     }
     interface FeatureMain {
     }
     interface FeatureSidebar {
-        "handleActive": (event: CustomEvent) => Promise<void>;
+        "darkTheme": boolean;
+        "sidebarActive": boolean;
         "sidebarTitle": string;
     }
+    interface FeatureTheme {
+        "darkTheme": string;
+    }
     interface SidebarToggle {
+        "sidebarActive": string;
     }
 }
 declare global {
@@ -45,6 +52,12 @@ declare global {
         prototype: HTMLFeatureSidebarElement;
         new (): HTMLFeatureSidebarElement;
     };
+    interface HTMLFeatureThemeElement extends Components.FeatureTheme, HTMLStencilElement {
+    }
+    var HTMLFeatureThemeElement: {
+        prototype: HTMLFeatureThemeElement;
+        new (): HTMLFeatureThemeElement;
+    };
     interface HTMLSidebarToggleElement extends Components.SidebarToggle, HTMLStencilElement {
     }
     var HTMLSidebarToggleElement: {
@@ -56,30 +69,39 @@ declare global {
         "feature-content": HTMLFeatureContentElement;
         "feature-main": HTMLFeatureMainElement;
         "feature-sidebar": HTMLFeatureSidebarElement;
+        "feature-theme": HTMLFeatureThemeElement;
         "sidebar-toggle": HTMLSidebarToggleElement;
     }
 }
 declare namespace LocalJSX {
     interface FeatureCard {
         "img"?: string;
+        "sidebarActive"?: string;
     }
     interface FeatureContent {
+        "sidebarActive"?: boolean;
     }
     interface FeatureMain {
     }
     interface FeatureSidebar {
-        "onScActiveState"?: (event: CustomEvent<any>) => void;
+        "darkTheme"?: boolean;
+        "sidebarActive"?: boolean;
         "sidebarTitle"?: string;
+    }
+    interface FeatureTheme {
+        "darkTheme"?: string;
     }
     interface SidebarToggle {
         "onStSetActiveSidebar"?: (event: CustomEvent<boolean>) => void;
         "onStSetToggleElement"?: (event: CustomEvent<HTMLElement>) => void;
+        "sidebarActive"?: string;
     }
     interface IntrinsicElements {
         "feature-card": FeatureCard;
         "feature-content": FeatureContent;
         "feature-main": FeatureMain;
         "feature-sidebar": FeatureSidebar;
+        "feature-theme": FeatureTheme;
         "sidebar-toggle": SidebarToggle;
     }
 }
@@ -91,6 +113,7 @@ declare module "@stencil/core" {
             "feature-content": LocalJSX.FeatureContent & JSXBase.HTMLAttributes<HTMLFeatureContentElement>;
             "feature-main": LocalJSX.FeatureMain & JSXBase.HTMLAttributes<HTMLFeatureMainElement>;
             "feature-sidebar": LocalJSX.FeatureSidebar & JSXBase.HTMLAttributes<HTMLFeatureSidebarElement>;
+            "feature-theme": LocalJSX.FeatureTheme & JSXBase.HTMLAttributes<HTMLFeatureThemeElement>;
             "sidebar-toggle": LocalJSX.SidebarToggle & JSXBase.HTMLAttributes<HTMLSidebarToggleElement>;
         }
     }

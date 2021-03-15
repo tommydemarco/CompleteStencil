@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 .feature-sidebar {
-  width: 480px;
+  width: 500px;
   max-width: 90%;
   transform: translateX(-600px);
   background-color: #ecf0f1;
@@ -16,7 +16,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  padding: 30px;
+  padding: 50px;
   box-shadow: none;
 
   @media only screen and (max-width: 900px) {

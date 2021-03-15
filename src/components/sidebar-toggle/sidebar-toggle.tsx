@@ -1,4 +1,8 @@
-import { Component, Element, Host, Listen, State, Event, EventEmitter, h } from '@stencil/core';
+import { Component, Element, Host, Listen, Prop, State, Event, EventEmitter, h } from '@stencil/core';
+
+import { store, Unsubscribe } from '@stencil/redux';
+
+import { toggleSidebar } from '../../redux/actions';
 
 @Component({
   tag: 'sidebar-toggle',
@@ -12,10 +16,33 @@ export class SidebarToggle {
   @Event({ bubbles: true, composed: false }) stSetToggleElement: EventEmitter<HTMLElement>;
   @State() active: boolean = false;
 
+  /** redux */
+
+  toggleSidebar!: typeof toggleSidebar;
+
+  @Prop({ mutable: true }) sidebarActive: string;
+  unsubscribe!: Unsubscribe;
+  componentWillLoad() {
+    this.unsubscribe = store.mapStateToProps(this, state => {
+      const { sidebar: {sidebarActive} } = state;
+      return { sidebarActive };
+    });
+
+    store.mapDispatchToProps(this, { toggleSidebar });
+  }
+
+  disconnectedCallback() {
+    this.unsubscribe();
+  }
+
   handleClick() {
     this.active = !this.active;
-    this.stSetActiveSidebar.emit(this.active);
+    this.toggleSidebar();
   }
+
+  
+
+  //this.stSetActiveSidebar.emit(this.active);
 
   componentDidLoad() {
     this.stSetToggleElement.emit(this.toggleElement);

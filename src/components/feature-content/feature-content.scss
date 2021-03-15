@@ -1,0 +1,14 @@
+.feature-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    padding: 120px;
+    float: right;
+    transition: all 0.5s ease-in-out;
+    will-change: transition;
+
+    &.retract {
+        width: calc(100% - 455px);
+    }
+}

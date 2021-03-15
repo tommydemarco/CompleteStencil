@@ -16,6 +16,10 @@
       box-sizing: border-box;
     }
 
+    body {
+      background: #34495e;
+    }
+
     sidebar-toggle {
       position: fixed;
       right: 60px;
@@ -35,6 +39,17 @@
     feature-sidebar {
       position: fixed;
       top: 0;
+      display: block;
+    }
+
+    context-consumer {
+      display: block;
+    }
+
+    feature-theme {
+      position: fixed;
+      bottom: 60px;
+      right: 50px;
     }
 
     .main {
@@ -70,7 +85,11 @@
     <sidebar-toggle></sidebar-toggle>
     <feature-content>
       <feature-card></feature-card>
+      <feature-card></feature-card>
+      <feature-card></feature-card>
+      <feature-card></feature-card>
     </feature-content>
+    <feature-theme></feature-theme>
   </feature-main>
 </body>
 
