@@ -16,6 +16,10 @@ export namespace Components {
     interface FeatureMain {
         "darkTheme": boolean;
     }
+    interface FeatureSelect {
+        "cardSubtitle": string;
+        "cardTitle": string;
+    }
     interface FeatureSidebar {
         "selectTitle": string;
         "sidebarActive": boolean;
@@ -48,6 +52,12 @@ declare global {
         prototype: HTMLFeatureMainElement;
         new (): HTMLFeatureMainElement;
     };
+    interface HTMLFeatureSelectElement extends Components.FeatureSelect, HTMLStencilElement {
+    }
+    var HTMLFeatureSelectElement: {
+        prototype: HTMLFeatureSelectElement;
+        new (): HTMLFeatureSelectElement;
+    };
     interface HTMLFeatureSidebarElement extends Components.FeatureSidebar, HTMLStencilElement {
     }
     var HTMLFeatureSidebarElement: {
@@ -70,6 +80,7 @@ declare global {
         "feature-card": HTMLFeatureCardElement;
         "feature-content": HTMLFeatureContentElement;
         "feature-main": HTMLFeatureMainElement;
+        "feature-select": HTMLFeatureSelectElement;
         "feature-sidebar": HTMLFeatureSidebarElement;
         "feature-theme": HTMLFeatureThemeElement;
         "sidebar-toggle": HTMLSidebarToggleElement;
@@ -85,6 +96,10 @@ declare namespace LocalJSX {
     }
     interface FeatureMain {
         "darkTheme"?: boolean;
+    }
+    interface FeatureSelect {
+        "cardSubtitle"?: string;
+        "cardTitle"?: string;
     }
     interface FeatureSidebar {
         "selectTitle"?: string;
@@ -104,6 +119,7 @@ declare namespace LocalJSX {
         "feature-card": FeatureCard;
         "feature-content": FeatureContent;
         "feature-main": FeatureMain;
+        "feature-select": FeatureSelect;
         "feature-sidebar": FeatureSidebar;
         "feature-theme": FeatureTheme;
         "sidebar-toggle": SidebarToggle;
@@ -116,6 +132,7 @@ declare module "@stencil/core" {
             "feature-card": LocalJSX.FeatureCard & JSXBase.HTMLAttributes<HTMLFeatureCardElement>;
             "feature-content": LocalJSX.FeatureContent & JSXBase.HTMLAttributes<HTMLFeatureContentElement>;
             "feature-main": LocalJSX.FeatureMain & JSXBase.HTMLAttributes<HTMLFeatureMainElement>;
+            "feature-select": LocalJSX.FeatureSelect & JSXBase.HTMLAttributes<HTMLFeatureSelectElement>;
             "feature-sidebar": LocalJSX.FeatureSidebar & JSXBase.HTMLAttributes<HTMLFeatureSidebarElement>;
             "feature-theme": LocalJSX.FeatureTheme & JSXBase.HTMLAttributes<HTMLFeatureThemeElement>;
             "sidebar-toggle": LocalJSX.SidebarToggle & JSXBase.HTMLAttributes<HTMLSidebarToggleElement>;
