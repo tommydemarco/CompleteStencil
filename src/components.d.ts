@@ -17,6 +17,7 @@ export namespace Components {
         "darkTheme": boolean;
     }
     interface FeatureSelect {
+        "cardNumber": number;
         "cardSubtitle": string;
         "cardTitle": string;
     }
@@ -98,6 +99,7 @@ declare namespace LocalJSX {
         "darkTheme"?: boolean;
     }
     interface FeatureSelect {
+        "cardNumber"?: number;
         "cardSubtitle"?: string;
         "cardTitle"?: string;
     }
