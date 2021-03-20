@@ -20,12 +20,13 @@ export class SidebarToggle {
 
   toggleSidebar!: typeof toggleSidebar;
 
-  @Prop({ mutable: true }) sidebarActive: string;
+  @Prop({ mutable: true }) sidebarActive: boolean;
+  @Prop() darkTheme: boolean;
   unsubscribe!: Unsubscribe;
   componentWillLoad() {
     this.unsubscribe = store.mapStateToProps(this, state => {
-      const { sidebar: {sidebarActive} } = state;
-      return { sidebarActive };
+      const { sidebar: {sidebarActive, darkTheme } } = state;
+      return { sidebarActive, darkTheme };
     });
 
     store.mapDispatchToProps(this, { toggleSidebar });
@@ -40,8 +41,6 @@ export class SidebarToggle {
     this.toggleSidebar();
   }
 
-  
-
   //this.stSetActiveSidebar.emit(this.active);
 
   componentDidLoad() {
@@ -55,9 +54,8 @@ export class SidebarToggle {
 
   render() {
     const classes = ['toggle-button'];
-    if (this.active) {
-      classes.push('active');
-    }
+    if (this.active) classes.push('active');
+    if(!this.darkTheme) classes.push('dark-theme');
     return (
       <Host onClick={this.handleClick.bind(this)}>
         <div class={classes.join(' ')}></div>

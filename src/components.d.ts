@@ -11,9 +11,11 @@ export namespace Components {
         "sidebarActive": string;
     }
     interface FeatureContent {
+        "darkTheme": boolean;
         "sidebarActive": boolean;
     }
     interface FeatureMain {
+        "darkTheme": boolean;
     }
     interface FeatureSidebar {
         "darkTheme": boolean;
@@ -24,7 +26,8 @@ export namespace Components {
         "darkTheme": string;
     }
     interface SidebarToggle {
-        "sidebarActive": string;
+        "darkTheme": boolean;
+        "sidebarActive": boolean;
     }
 }
 declare global {
@@ -79,9 +82,11 @@ declare namespace LocalJSX {
         "sidebarActive"?: string;
     }
     interface FeatureContent {
+        "darkTheme"?: boolean;
         "sidebarActive"?: boolean;
     }
     interface FeatureMain {
+        "darkTheme"?: boolean;
     }
     interface FeatureSidebar {
         "darkTheme"?: boolean;
@@ -92,9 +97,10 @@ declare namespace LocalJSX {
         "darkTheme"?: string;
     }
     interface SidebarToggle {
+        "darkTheme"?: boolean;
         "onStSetActiveSidebar"?: (event: CustomEvent<boolean>) => void;
         "onStSetToggleElement"?: (event: CustomEvent<HTMLElement>) => void;
-        "sidebarActive"?: string;
+        "sidebarActive"?: boolean;
     }
     interface IntrinsicElements {
         "feature-card": FeatureCard;

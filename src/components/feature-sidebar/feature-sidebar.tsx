@@ -62,7 +62,7 @@ export class FeatureSidebar {
     const baseClass = 'feature-sidebar';
     let classes = [baseClass];
     if (this.sidebarActive) classes.push('active');
-    if(this.darkTheme) classes.push('dark-theme');
+    if(!this.darkTheme) classes.push('dark-theme');
     return (
       <Tunnel.Consumer>
         {(state: TunnelState) => {

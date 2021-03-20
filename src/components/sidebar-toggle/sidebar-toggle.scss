@@ -58,4 +58,11 @@
       height: 3.5px;
     }
   }
+
+  &.dark-theme {
+    &::after,
+    &::before {
+      background-color: #2c3e50;
+    }
+  }
 }
