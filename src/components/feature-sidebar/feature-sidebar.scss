@@ -24,22 +24,22 @@
   }
 
   &__title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 30px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+  }
 
-    &-icon {
-      font-size: 26px;
-      margin-right: 5px;
-      margin-top: -3px;
-    }
+  &__select-title {
+    font-size: 22px;
+    margin-bottom: 8px;
   }
 
   &__subtitle {
     font-size: 16px;
     margin-bottom: 30px;
+  }
+
+  &__select-copy {
+    font-size: 16px;
   }
 
   &.active {

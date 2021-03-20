@@ -10,9 +10,9 @@ import state from '../../store';
   shadow: false,
 })
 export class FeatureSidebar {
-    @Prop() sidebarTitle: string = 'Menu';
-
-    @Prop() sidebarActive: boolean = false;
+    @Prop() sidebarTitle: string;
+    @Prop() selectTitle: string;
+    @Prop() sidebarActive = false;
 
     unsubscribe!: Unsubscribe;
     componentWillLoad() {
@@ -37,13 +37,19 @@ export class FeatureSidebar {
             return (
               <Host class={classes.join(' ')}>
                 <h2 class={`${baseClass}__title`}>
-                  {this.sidebarTitle} {state.activeCard}
+                  {this.sidebarTitle}
                 </h2>
                 <p class={`${baseClass}__subtitle`}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nobis molestiae necessitatibus quibusdam corrupti explicabo itaque aut, quas.
-                </p>
-                <p onClick={() => state.setActiveCard(4)}>Set the active card to 4</p>
-                <slot /> 
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  Architecto nobis molestiae necessitatibus quibusdam corrupti 
+                  explicabo itaque aut, quas.
+                </p> 
+                <h4 class={`${baseClass}__select-title`}>
+                  {this.selectTitle}
+                </h4>
+                <p class={`${baseClass}__select-copy`}>
+                  Lorem ipsum dolor sit amet consectetur.
+                </p> 
             </Host>
           )}}
         </Tunnel.Consumer>

@@ -1,8 +1,8 @@
 import { Component, Element, Host, Listen, Prop, State, Event, EventEmitter, h } from '@stencil/core';
 
 import { store, Unsubscribe } from '@stencil/redux';
-
 import { toggleSidebar } from '../../redux/actions';
+import state from '../../store';
 
 @Component({
   tag: 'sidebar-toggle',
@@ -41,7 +41,7 @@ export class SidebarToggle {
     this.toggleSidebar();
   }
 
-  //this.stSetActiveSidebar.emit(this.active);
+  // this.stSetActiveSidebar.emit(this.active);
 
   componentDidLoad() {
     this.stSetToggleElement.emit(this.toggleElement);
@@ -55,7 +55,7 @@ export class SidebarToggle {
   render() {
     const classes = ['toggle-button'];
     if (this.active) classes.push('active');
-    if(!this.darkTheme) classes.push('dark-theme');
+    if(state.theme !== "dark") classes.push('dark-theme');
     return (
       <Host onClick={this.handleClick.bind(this)}>
         <div class={classes.join(' ')}></div>

@@ -1,8 +1,9 @@
 import { Component, Host, State, Prop, h } from "@stencil/core" 
-import Tunnel from '../../state-tunnel';
 
+import Tunnel from '../../state-tunnel';
 import { store, Unsubscribe } from '@stencil/redux';
 import { initialStore } from '../../redux/store';
+import state from '../../store';
 
 @Component({
     tag: "feature-main",
@@ -38,7 +39,7 @@ export class FeatureMain {
             setActiveCard: this.setActiveCard
         };
         const baseClass = ["feature-main"]
-        if(!this.darkTheme) baseClass.push("light-theme")
+        if(state.theme !== "dark") baseClass.push("light-theme")
         return (
             <Host class={baseClass.join(" ")}>
                 <Tunnel.Provider state={tunnelState}>              

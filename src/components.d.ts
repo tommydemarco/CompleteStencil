@@ -11,13 +11,13 @@ export namespace Components {
         "sidebarActive": string;
     }
     interface FeatureContent {
-        "darkTheme": boolean;
         "sidebarActive": boolean;
     }
     interface FeatureMain {
         "darkTheme": boolean;
     }
     interface FeatureSidebar {
+        "selectTitle": string;
         "sidebarActive": boolean;
         "sidebarTitle": string;
     }
@@ -81,13 +81,13 @@ declare namespace LocalJSX {
         "sidebarActive"?: string;
     }
     interface FeatureContent {
-        "darkTheme"?: boolean;
         "sidebarActive"?: boolean;
     }
     interface FeatureMain {
         "darkTheme"?: boolean;
     }
     interface FeatureSidebar {
+        "selectTitle"?: string;
         "sidebarActive"?: boolean;
         "sidebarTitle"?: string;
     }
