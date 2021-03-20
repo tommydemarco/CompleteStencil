@@ -18,7 +18,6 @@ export namespace Components {
         "darkTheme": boolean;
     }
     interface FeatureSidebar {
-        "darkTheme": boolean;
         "sidebarActive": boolean;
         "sidebarTitle": string;
     }
@@ -89,7 +88,6 @@ declare namespace LocalJSX {
         "darkTheme"?: boolean;
     }
     interface FeatureSidebar {
-        "darkTheme"?: boolean;
         "sidebarActive"?: boolean;
         "sidebarTitle"?: string;
     }

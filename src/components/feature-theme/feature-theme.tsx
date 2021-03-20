@@ -1,7 +1,7 @@
 import { Component, Prop, h, } from "@stencil/core"
 
 import { store, Unsubscribe } from '@stencil/redux';
-import { switchTheme } from '../../redux/actions';
+import state from '../../store';
 
 @Component({
     tag: "feature-theme",
@@ -10,8 +10,6 @@ import { switchTheme } from '../../redux/actions';
 })
 export class FeatureTheme {
 
-    switchTheme!: typeof switchTheme;
-
     @Prop({ mutable: true }) darkTheme: string;
     unsubscribe!: Unsubscribe;
     componentWillLoad() {
@@ -19,16 +17,18 @@ export class FeatureTheme {
             const { sidebar: {darkTheme} } = state;
             return { darkTheme };
         });
-
-        store.mapDispatchToProps(this, { switchTheme });
     }
 
     disconnectedCallback() {
         this.unsubscribe();
     }
 
+    switchTheme() {
+        if (state.theme === "dark") state.theme = "light"
+        else state.theme = "dark"
+    }
+
     render() {
-        console.log(this.darkTheme)
         return (
             <label class="switch">
                 <input type="checkbox" checked onClick={this.switchTheme} />
