@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FeatureCard {
         "cardNumber": number;
+        "cardTitle": string;
+        "imageUrl": string;
         "img": string;
         "sidebarActive": string;
     }
@@ -91,6 +93,8 @@ declare global {
 declare namespace LocalJSX {
     interface FeatureCard {
         "cardNumber"?: number;
+        "cardTitle"?: string;
+        "imageUrl"?: string;
         "img"?: string;
         "sidebarActive"?: string;
     }

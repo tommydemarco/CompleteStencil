@@ -12,6 +12,8 @@ export class FeatureContent {
 
     @Prop() img: string;
     @Prop() cardNumber: number;
+    @Prop() cardTitle: string;
+    @Prop() imageUrl: string;
 
     @Prop({ mutable: true }) sidebarActive: string;
 
@@ -40,9 +42,9 @@ export class FeatureContent {
         return (      
                 <div class={classes.join(" ")}>
                     <input type="checkbox" id="card1" class="more" aria-hidden="true" />
-                    <div class="front" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1529408686214-b48b8532f72c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=986e2dee5c1b488d877ad7ba1afaf2ec&auto=format&fit=crop&w=1350&q=80')"}}>
+                    <div class="front" style={{ backgroundImage: `url('${this.imageUrl}')`}}>
                         <div class="inner">
-                            <h2>APARTMENTS</h2>
+                            <h2>{this.cardTitle}</h2>
                             <div class="rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -90,7 +92,7 @@ export class FeatureContent {
                                     ullam, reiciendis nam consectetur? Lorem ipszum earum nostrum ipsam
                                     ullam, reiciendis nam consectetur</p>
                             </div>
-                            <div class="location">Warsaw, Poland</div>
+                            <div class="location">{this.cardTitle}</div>
                             <div class="price">38€ / day</div>
                             <label onClick={() => state.setActiveCard(0)} class="button return" aria-hidden="true">
                                 BACK

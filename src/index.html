@@ -5,81 +5,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
   <title>Stencil Component Starter</title>
-
+  <link rel="stylesheet" href="style.css" />
   <script type="module" src="/build/complete-srtencil.esm.js"></script>
   <script nomodule src="/build/complete-srtencil.js"></script>
-
-  <style lang="text/scss">
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #34495e;
-    }
-
-    sidebar-toggle {
-      position: fixed;
-      right: 60px;
-      top: 60px;
-      background-color: transparent;
-    }
-
-    sidebar-toggle:hover {
-      transform: scale(1.1);
-    }
-
-    sidebar-toggl:hover>div::after,
-    sidebar-toggl:hover>div::before {
-      box-shadow: 0px 5px 37px 6px rgba(0, 0, 0, 0.58);
-    }
-
-    feature-sidebar {
-      position: fixed;
-      top: 0;
-      display: block;
-    }
-
-    context-consumer {
-      display: contents;
-    }
-
-    feature-theme {
-      position: fixed;
-      bottom: 60px;
-      right: 50px;
-    }
-
-    .main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 50px;
-    }
-
-    body {
-      overflow: hidden;
-    }
-
-    .main__title {
-      font-size: 30px;
-    }
-
-    .main__content {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      max-width: 900px;
-    }
-
-    .content-box {
-      background-color: orange;
-      width: 40%;
-      height: 400px;
-    }
-  </style>
 </head>
 
 <body>
@@ -96,10 +24,14 @@
     </feature-sidebar>
     <sidebar-toggle></sidebar-toggle>
     <feature-content>
-      <feature-card card-number="1" main-title="Nature 360deg" class="card"></feature-card>
-      <feature-card card-number="2" class="card"></feature-card>
-      <feature-card card-number="3" class="card"></feature-card>
-      <feature-card card-number="4" class="card"></feature-card>
+      <feature-card card-number="1" card-title="Nature 360deg" class="card"
+        image-url="https://source.unsplash.com/xknt_wcgPus/1600x900"></feature-card>
+      <feature-card card-number="2" card-title="City break" class="card"
+        image-url="https://source.unsplash.com/9OPrqaDqLAs/1600x900"></feature-card>
+      <feature-card card-number="3" card-title="Beach resort & spa" class="card"
+        image-url="https://source.unsplash.com/WrJEvYcBqys/1600x900"></feature-card>
+      <feature-card card-number="4" card-title="Trekking adventure" class="card"
+        image-url="https://source.unsplash.com/pf9jM7odjxw/1600x900"></feature-card>
     </feature-content>
     <feature-theme></feature-theme>
   </feature-main>
