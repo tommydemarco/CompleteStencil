@@ -47,6 +47,11 @@ export class FeatureSidebar {
                 Lorem ipsum dolor sit amet consectetur.
               </p>
               <slot></slot>
+              <div class={`${baseClass}__links`}>
+                <a href="" target="_blank">State Tunnel</a>
+                <a href="" target="_blank">Stencil Redux</a>
+                <a href="" target="_blank">Stencil Store</a>
+              </div>
           </Host>
       );
     }

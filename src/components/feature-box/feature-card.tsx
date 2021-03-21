@@ -34,13 +34,8 @@ export class FeatureContent {
     <Host>
         <Tunnel.Consumer>
                 {(state: TunnelState) => {
-                    // const classes = ["feature-select"]
-                    // if(themeState.theme !== "dark") classes.push('feature-select--dark')
-                    // if (state.activeCard === this.cardNumber) {
-                    //     classes.push("feature-select--active")
-                    // }
-                    // console.log(state.activeCard)
                     const classes = ["content"]
+                    if(themeState.theme !== "dark") classes.push('dark')
                     if (state.activeCard === this.cardNumber) classes.push("active")
         return (      
                 <div class={classes.join(" ")}>
@@ -92,12 +87,13 @@ export class FeatureContent {
                             </div>
                             <div class="description">
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates earum nostrum ipsam
-                                    ullam, reiciendis nam consectetur?</p>
+                                    ullam, reiciendis nam consectetur? Lorem ipszum earum nostrum ipsam
+                                    ullam, reiciendis nam consectetur</p>
                             </div>
                             <div class="location">Warsaw, Poland</div>
                             <div class="price">38€ / day</div>
                             <label onClick={() => state.setActiveCard(0)} class="button return" aria-hidden="true">
-                                <i class="fas fa-arrow-left"></i>
+                                BACK
                             </label>
                         </div>
                     </div>
