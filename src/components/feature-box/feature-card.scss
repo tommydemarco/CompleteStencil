@@ -143,13 +143,13 @@
 .back .description {
   grid-row: 5;
   grid-column: 1/-1;
-  font-size: 0.86em;
   border-radius: 0;
   font-weight: 600;
-  line-height: 1.4em;
   overflow: auto;
   color: #34495e;
   padding-right: 10px;
+  font-size: 16px;
+  line-height: 1.3;
 }
 .back .location,
 .back .price {

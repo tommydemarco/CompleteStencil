@@ -48,9 +48,9 @@ export class FeatureSidebar {
               </p>
               <slot></slot>
               <div class={`${baseClass}__links`}>
-                <a href="" target="_blank">State Tunnel</a>
-                <a href="" target="_blank">Stencil Redux</a>
-                <a href="" target="_blank">Stencil Store</a>
+                <a href="#" target="_blank">State Tunnel</a>
+                <a href="#" target="_blank">Stencil Redux</a>
+                <a href="#" target="_blank">Stencil Store</a>
               </div>
           </Host>
       );
