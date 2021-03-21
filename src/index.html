@@ -43,7 +43,7 @@
     }
 
     context-consumer {
-      display: block;
+      display: contents;
     }
 
     feature-theme {
@@ -85,13 +85,21 @@
 <body>
   <feature-main>
     <feature-sidebar sidebar-title="Lorem Ipsum" select-title="Dolor sit amet">
+      <feature-select card-number="1" card-title="Nature 360deg"
+        card-subtitle="Discover amazing lorem ipsum dolor sit amet"></feature-select>
+      <feature-select card-number="2" card-title="City break"
+        card-subtitle="Discover amazing lorem ipsum dolor sit amet"></feature-select>
+      <feature-select card-number="3" card-title="Beach resort & spa"
+        card-subtitle="Discover amazing lorem ipsum dolor sit amet"></feature-select>
+      <feature-select card-number="4" card-title="Trekking adventure"
+        card-subtitle="Discover amazing lorem ipsum dolor sit amet"></feature-select>
     </feature-sidebar>
     <sidebar-toggle></sidebar-toggle>
     <feature-content>
-      <feature-card></feature-card>
-      <feature-card></feature-card>
-      <feature-card></feature-card>
-      <feature-card></feature-card>
+      <feature-card card-number="1" main-title="Nature 360deg" class="card"></feature-card>
+      <feature-card card-number="2" class="card"></feature-card>
+      <feature-card card-number="3" class="card"></feature-card>
+      <feature-card card-number="4" class="card"></feature-card>
     </feature-content>
     <feature-theme></feature-theme>
   </feature-main>
